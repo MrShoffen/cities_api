@@ -20,5 +20,9 @@ public class WebConfig implements WebMvcConfigurer {
                 .allowCredentials(true);
     }
 
+    @Bean
+    public Transliterator getTransliterator() {
+       return Transliterator.getInstance("Cyrillic-Latin");
+    }
 
 }

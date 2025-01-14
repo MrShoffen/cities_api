@@ -21,17 +21,12 @@ public class CityController {
 
     private final CitiesRepository citiesRepository;
 
+    private final Transliterator transliterator;
 
     @GetMapping
     public ResponseEntity<List<CityResponseDto>> getCities(@RequestParam(value = "name") String name) {
-
-        Transliterator toLatin = Transliterator.getInstance("Cyrillic-Latin");
-
-        String transliterate = toLatin.transliterate(name);
-        System.out.println(transliterate);
-
         Pageable pageRequest = PageRequest.of(0, 8);
-        List<CityResponseDto> list = citiesRepository.findUniqueCities(transliterate, pageRequest)
+        List<CityResponseDto> list = citiesRepository.findUniqueCities(transliterator.transliterate(name), pageRequest)
                 .stream()
                 .map(CityResponseDto::new)
                 .toList();
