@@ -21,6 +21,7 @@ public class CityController {
 
     private final CitiesRepository citiesRepository;
 
+
     @GetMapping
     public ResponseEntity<List<CityResponseDto>> getCities(@RequestParam(value = "name") String name) {
 
