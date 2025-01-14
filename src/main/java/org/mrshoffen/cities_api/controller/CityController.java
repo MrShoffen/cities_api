@@ -24,7 +24,6 @@ public class CityController {
 
 
         Pageable pageRequest = PageRequest.of(0, 8);
-
         List<CityResponseDto> list = citiesRepository.findUniqueCities(name, pageRequest)
                 .stream()
                 .map(CityResponseDto::new)
