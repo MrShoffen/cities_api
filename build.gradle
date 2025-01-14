@@ -23,6 +23,8 @@ dependencies {
     runtimeOnly 'org.xerial:sqlite-jdbc'
     implementation 'org.hibernate.orm:hibernate-community-dialects'
 
+    implementation 'com.ibm.icu:icu4j:76.1'
+
     compileOnly 'org.projectlombok:lombok'
     annotationProcessor 'org.projectlombok:lombok'
 

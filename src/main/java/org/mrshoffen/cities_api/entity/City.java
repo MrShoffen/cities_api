@@ -7,7 +7,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Entity
-@Table(name = "countries")
+@Table(name = "cities")
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
@@ -19,4 +19,7 @@ public class City {
 
     @Column(name = "name")
     private String name;
+
+    @Column(name = "population")
+    private Integer population;
 }

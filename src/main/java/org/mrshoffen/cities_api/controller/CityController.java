@@ -1,5 +1,6 @@
 package org.mrshoffen.cities_api.controller;
 
+import com.ibm.icu.text.Transliterator;
 import lombok.RequiredArgsConstructor;
 import org.mrshoffen.cities_api.dto.CityResponseDto;
 import org.mrshoffen.cities_api.repository.CitiesRepository;
@@ -19,12 +20,17 @@ import java.util.List;
 public class CityController {
 
     private final CitiesRepository citiesRepository;
+
     @GetMapping
     public ResponseEntity<List<CityResponseDto>> getCities(@RequestParam(value = "name") String name) {
 
+        Transliterator toLatin = Transliterator.getInstance("Cyrillic-Latin");
+
+        String transliterate = toLatin.transliterate(name);
+        System.out.println(transliterate);
 
         Pageable pageRequest = PageRequest.of(0, 8);
-        List<CityResponseDto> list = citiesRepository.findUniqueCities(name, pageRequest)
+        List<CityResponseDto> list = citiesRepository.findUniqueCities(transliterate, pageRequest)
                 .stream()
                 .map(CityResponseDto::new)
                 .toList();

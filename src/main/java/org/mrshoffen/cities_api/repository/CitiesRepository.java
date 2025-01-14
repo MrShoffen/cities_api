@@ -13,8 +13,8 @@ public interface CitiesRepository extends JpaRepository<City, Integer> {
 
 
     @Query("""
-            SELECT DISTINCT c.name FROM City c
-            WHERE c.name like :name% 
+            SELECT c.name FROM City c
+            WHERE c.name like :name%  ORDER BY c.population DESC
             """)
     List<String> findUniqueCities(@Param("name") String name, Pageable page);
 
