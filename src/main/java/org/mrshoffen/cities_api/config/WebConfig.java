@@ -14,11 +14,11 @@ public class WebConfig implements WebMvcConfigurer {
 
     @Override
     public void addCorsMappings(CorsRegistry registry) {
-        registry.addMapping("/**")
-                .allowedOrigins("http://192.168.0.190:5173, http://localhost:5173")
-                .allowedMethods("GET", "OPTIONS", "POST")
-                .allowedHeaders("*")
-                .allowCredentials(true);
+        registry.addMapping("/**") // Разрешить все URL
+                .allowedOrigins("*") // Разрешить запросы с любых источников
+                .allowedMethods("*") // Разрешить любые HTTP-методы (GET, POST, DELETE и др.)
+                .allowedHeaders("*") // Разрешить все заголовки
+                .allowCredentials(false); // Отключить возможность отправки авторизационных данных (например, cookies)
     }
 
     @Bean

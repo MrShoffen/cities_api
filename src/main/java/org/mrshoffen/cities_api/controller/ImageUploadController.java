@@ -13,10 +13,7 @@ import org.springframework.http.client.ClientHttpResponse;
 import org.springframework.http.client.MultipartBodyBuilder;
 import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.RestClient;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -40,6 +37,10 @@ public class ImageUploadController {
     @Value("${app.image.upload-url}")
     private String url;
 
+    @GetMapping
+    ResponseEntity<Map<String, String>> testGet() {
+        return ResponseEntity.ok(Map.of("get", "is working"));
+    }
 
     @SneakyThrows
     @PostMapping(consumes = {"multipart/form-data"})
