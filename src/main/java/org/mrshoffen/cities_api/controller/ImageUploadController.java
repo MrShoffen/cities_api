@@ -60,7 +60,7 @@ public class ImageUploadController {
 
 
         return ResponseEntity.ok(
-                Map.of("imageUrl", imageResponse.getData().getUrl())
+                Map.of("imageUrl", imageResponse.getData().getDisplayUrl())
         );
 
     }

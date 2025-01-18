@@ -16,5 +16,8 @@ public class ImageResponse {
     public static class ImgData {
         @JsonProperty("url")
         String url;
+
+        @JsonProperty("display_url")
+        String displayUrl;
     }
 }
