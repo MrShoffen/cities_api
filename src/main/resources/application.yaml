@@ -12,6 +12,15 @@ spring:
       format_sql: true
       hbm2ddl.auto: validate
       default_schema: weather
+  servlet:
+    multipart:
+      max-file-size: 5MB
 
 server:
   port: 8081
+
+
+app:
+  image:
+    upload-url: https://api.imgbb.com/1/upload?key=%s
+    imgbb-key: ${IMGBB_KEY}

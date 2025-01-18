@@ -4,6 +4,7 @@ import com.ibm.icu.text.Transliterator;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.web.client.RestClient;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
@@ -15,7 +16,7 @@ public class WebConfig implements WebMvcConfigurer {
     public void addCorsMappings(CorsRegistry registry) {
         registry.addMapping("/**")
                 .allowedOrigins("http://192.168.0.190:5173, http://localhost:5173")
-                .allowedMethods("GET", "OPTIONS")
+                .allowedMethods("GET", "OPTIONS", "POST")
                 .allowedHeaders("*")
                 .allowCredentials(true);
     }
@@ -24,5 +25,12 @@ public class WebConfig implements WebMvcConfigurer {
     public Transliterator getTransliterator() {
        return Transliterator.getInstance("Cyrillic-Latin");
     }
+
+    @Bean
+    public RestClient restClient() {
+        return RestClient.create();
+    }
+
+
 
 }
