@@ -11,4 +11,4 @@ server:
 app:
   image:
     upload-url: https://api.imgbb.com/1/upload?key=%s
-    imgbb-key: ${IMGBB_KEY}
+    imgbb-key: f3d7b85ce7fca711c64ba63c15e5ecaf
