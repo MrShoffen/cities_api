@@ -1,20 +1,8 @@
 spring:
-  datasource:
-    url: jdbc:sqlite::resource:./static/database.db
 
-    driver-class-name: org.sqlite.JDBC
-    hikari:
-      max-lifetime: 250000
-  jpa:
-    open-in-view: false
-    properties.hibernate:
-      show_sql: true
-      format_sql: true
-      hbm2ddl.auto: validate
-      default_schema: weather
   servlet:
     multipart:
-      max-file-size: 5MB
+      max-file-size: 10MB
 
 server:
   port: 8081

@@ -1,6 +1,5 @@
 package org.mrshoffen.cities_api.config;
 
-import com.ibm.icu.text.Transliterator;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -21,10 +20,6 @@ public class WebConfig implements WebMvcConfigurer {
                 .allowCredentials(true);
     }
 
-    @Bean
-    public Transliterator getTransliterator() {
-       return Transliterator.getInstance("Cyrillic-Latin");
-    }
 
     @Bean
     public RestClient restClient() {
